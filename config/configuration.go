@@ -56,6 +56,7 @@ type Apistatus struct {
 }
 
 type DNS struct {
+	DomainInfoURL string `json:"DomainInfoURL"`
 	DNSLookupURL        string `json:"DNSLookupURL"`
 	ReverseDNSLookupURL string `json:"ReverseDNSLookupURL"`
 }

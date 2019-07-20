@@ -42,6 +42,7 @@
       "AccountProfileURL": "https://api.shodan.io/account/profile"
     },
     "dns": {
+      "DomainInfoURL": "https://api.shodan.io/dns/domain/{domain}",
       "DNSLookupURL": "https://api.shodan.io/dns/resolve",
       "ReverseDNSLookupURL": "https://api.shodan.io/dns/reverse"
     },

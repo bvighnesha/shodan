@@ -6,12 +6,14 @@ import (
 	"shodan/config"
 	"shodan/net/http"
 	"shodan/net/httputil"
+	"strings"
 )
 
 const Hostnames = "hostnames"
 const IPs = "ips"
 
 type DNS interface {
+	DomainInfo(ctx context.Context, domain string) (string, error)
 	Lookup(ctx context.Context, hostnames string) (string, error)
 	ReverseLookup(ctx context.Context, ips string) (string, error)
 }
@@ -19,6 +21,18 @@ type DNS interface {
 type dns struct {
 	key    string
 	config config.DNS
+}
+
+func (dns *dns) DomainInfo(ctx context.Context, domain string) (string, error) {
+	url := dns.config.DomainInfoURL
+
+	options := make(map[string]string)
+	options[config.KEY] = dns.key
+
+	url = strings.Replace(url, "{domain}", domain, -1)
+
+	response, e := http.Do(ctx, MethodGet, url, options)
+	return httputil.Response(response, e)
 }
 
 func (dns *dns) Lookup(ctx context.Context, hostnames string) (string, error) {

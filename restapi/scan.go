@@ -11,8 +11,8 @@ import (
 
 type Scan interface {
 	Protocols(ctx context.Context) (string, error)
-	Scan(ctx context.Context, ips []string)
-	ScanInternet(ctx context.Context, port int, protocol string)
+	Scan(ctx context.Context, ips []string) (string, error)
+	ScanInternet(ctx context.Context, port int, protocol string) (string, error)
 	ScanStatus(ctx context.Context, id string) (string, error)
 }
 
@@ -31,11 +31,11 @@ func (scan *scan) Protocols(ctx context.Context) (string, error) {
 	return httputil.Response(response, e)
 }
 
-func (scan *scan) Scan(ctx context.Context, ips []string) {
+func (scan *scan) Scan(ctx context.Context, ips []string) (string, error) {
 	panic("implement me")
 }
 
-func (scan *scan) ScanInternet(ctx context.Context, port int, protocol string) {
+func (scan *scan) ScanInternet(ctx context.Context, port int, protocol string) (string, error){
 	panic("implement me")
 }
 
