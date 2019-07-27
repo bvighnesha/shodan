@@ -15,7 +15,6 @@ func Response(response *http.Response, e error) (string, error) {
 	}
 
 	data, e := ioutil.ReadAll(response.Body)
-	fmt.Println(string(data))
 	return string(data), e
 }
 

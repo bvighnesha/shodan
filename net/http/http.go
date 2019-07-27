@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"net/http"
 	"shodan/net"
+	"sort"
+	"strings"
 )
 
 const UserAgentKey = "User-Agent"
@@ -26,9 +28,9 @@ func Do(ctx context.Context, method, url string, options map[string]string) (*ht
 
 	}
 
-	request.URL.RawQuery = query.Encode()
+	request.URL.RawQuery = Encode(query)
 
-	fmt.Println(query.Encode())
+	fmt.Println(Encode(query))
 	return Execute(ctx, request)
 }
 
@@ -51,4 +53,31 @@ func Execute(ctx context.Context, request *http.Request) (*http.Response, error)
 
 	return client.Do(request)
 
+}
+
+// Encode encodes the values into ``URL encoded'' form
+// ("bar=baz&foo=quux") sorted by key.
+func Encode(values map[string][]string) string {
+	if values == nil {
+		return ""
+	}
+	var buf strings.Builder
+	keys := make([]string, 0, len(values))
+	for k := range values {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	for _, k := range keys {
+		vs := values[k]
+
+		for _, v := range vs {
+			if buf.Len() > 0 {
+				buf.WriteByte('&')
+			}
+			buf.WriteString(k)
+			buf.WriteByte('=')
+			buf.WriteString(v)
+		}
+	}
+	return buf.String()
 }
