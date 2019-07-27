@@ -58,7 +58,19 @@
     }
   },
   "streamapi": {
+    "streamData": {
+      "BannersURL": "https://stream.shodan.io/shodan/banners",
+      "FiltereByASNURL":"https://stream.shodan.io/shodan/asn/{asn}",
+      "FiltereByCountry":"https://stream.shodan.io/shodan/countries/{countries}",
+      "FiltereByPorts":"https://stream.shodan.io/shodan/ports/{ports}"
+    },
+    "streamNetworkAlerts": {
+      "AllNetworkAlertsURL":"https://stream.shodan.io/shodan/alert",
+      "FiltereByAlertIDURL":"https://stream.shodan.io/shodan/alert/{id}"
+    }
   },
   "exploitsapi": {
+    "SearchURL":"https://exploits.shodan.io/api/search",
+    "CountURL":"https://exploits.shodan.io/api/count"
   }
 }

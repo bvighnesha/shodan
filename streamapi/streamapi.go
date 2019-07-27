@@ -1,4 +1,4 @@
-package shodan
+package streamapi
 
 import "shodan/config"
 
