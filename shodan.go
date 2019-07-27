@@ -2,7 +2,9 @@ package shodan
 
 import (
 	"shodan/config"
+	"shodan/exploitsapi"
 	"shodan/restapi"
+	"shodan/streamapi"
 )
 
 const streamingAPIBaseURL = "https://stream.shodan.io"
@@ -13,8 +15,8 @@ const restAPIURL = "https://api.shodan.io"
 
 type Shodan interface {
 	RestAPI() restapi.Rest
-	StreamAPI() *Stream
-	ExploitsAPI() *Exploits
+	StreamAPI() streamapi.Stream
+	ExploitsAPI() exploitsapi.Exploits
 }
 
 type shodan struct {
@@ -22,25 +24,17 @@ type shodan struct {
 	config config.Configuration
 }
 
-func (api *shodan) StreamAPI() *Stream {
-	panic("implement me")
+func (api *shodan) StreamAPI() streamapi.Stream {
+	return streamapi.Configure(api.apiKey, api.config.Streamapi)
 }
 
-func (api *shodan) ExploitsAPI() *Exploits {
-	panic("implement me")
+func (api *shodan) ExploitsAPI() exploitsapi.Exploits {
+	return exploitsapi.Configure(api.apiKey, api.config.Exploitsapi)
 }
 
 func (api *shodan) RestAPI() restapi.Rest {
 	return restapi.Configure(api.apiKey, api.config.Restapi)
 }
-
-/*func (api *shodan) StreamAPI() *Stream {
-	return &Stream{configuration: Configuration{key: api.apiKey, url: streamingAPIBaseURL}, context:"/shodan"}
-}
-
-func (api *shodan) ExploitsAPI() *Exploits {
-	return &Exploits{configuration: Configuration{key: api.apiKey, url: exploitAPIBaseURL}}
-}*/
 
 func Configure(apiKey string) Shodan {
 	return &shodan{apiKey: apiKey, config: config.LoadConfig()}
