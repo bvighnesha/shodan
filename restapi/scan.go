@@ -3,10 +3,11 @@ package restapi
 import (
 	"context"
 	. "net/http"
-	"shodan/config"
-	"shodan/net/http"
-	"shodan/net/httputil"
 	"strings"
+	"vighnesh.org/shodan/config"
+	"vighnesh.org/shodan/net/http"
+	"vighnesh.org/shodan/net/httputil"
+
 )
 
 type Scan interface {

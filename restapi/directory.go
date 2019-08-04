@@ -3,10 +3,10 @@ package restapi
 import (
 	"context"
 	. "net/http"
-	"shodan/config"
-	"shodan/net/http"
-	"shodan/net/httputil"
 	"strconv"
+	"vighnesh.org/shodan/config"
+	"vighnesh.org/shodan/net/http"
+	"vighnesh.org/shodan/net/httputil"
 )
 
 const (

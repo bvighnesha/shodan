@@ -1,7 +1,7 @@
 package streamapi
 
 import (
-	"shodan/config"
+	"vighnesh.org/shodan/config"
 )
 
 type Stream interface {
