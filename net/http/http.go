@@ -5,9 +5,9 @@ import (
 	"context"
 	"fmt"
 	"net/http"
-	"shodan/net"
 	"sort"
 	"strings"
+	"vighnesh.org/shodan/net"
 )
 
 const UserAgentKey = "User-Agent"
