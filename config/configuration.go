@@ -14,7 +14,7 @@ type Configuration struct {
 }
 
 func LoadConfig() Configuration {
-	jsonFile, err := os.Open("D:/code/go/shodan/config/config.json")
+	jsonFile, err := os.Open("config/config.json")
 
 	if err != nil {
 		fmt.Println(err)
@@ -122,8 +122,8 @@ type Streamapi struct {
 }
 
 type StreamData struct {
-	BannersURL       string `json:"BannersURL,omitempty"`
-	FiltereByASNURL  string `json:"FiltereByASNURL,omitempty"`
+	BannersURL          string `json:"BannersURL,omitempty"`
+	FiltereByASNURL     string `json:"FiltereByASNURL,omitempty"`
 	FiltereByCountryURL string `json:"FiltereByCountry,omitempty"`
 	FiltereByPortsURL   string `json:"FiltereByPorts,omitempty"`
 }

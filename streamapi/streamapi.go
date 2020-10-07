@@ -1,7 +1,7 @@
 package streamapi
 
 import (
-	"vighnesh.org/shodan/config"
+	"vighnesha.in/shodan/config"
 )
 
 type Stream interface {
@@ -25,8 +25,3 @@ func (stream *stream) NetworkAlerts() NetworkAlert {
 func Configure(apiKey string, configuration config.Streamapi) Stream {
 	return &stream{key: apiKey, config: configuration}
 }
-
-
-
-
-

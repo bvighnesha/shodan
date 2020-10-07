@@ -3,9 +3,9 @@ package restapi
 import (
 	"context"
 	. "net/http"
-	"vighnesh.org/shodan/config"
-	"vighnesh.org/shodan/net/http"
-	"vighnesh.org/shodan/net/httputil"
+	"vighnesha.in/shodan/config"
+	"vighnesha.in/shodan/net/http"
+	"vighnesha.in/shodan/net/httputil"
 
 	"strconv"
 	"strings"

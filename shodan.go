@@ -1,10 +1,10 @@
 package shodan
 
 import (
-	"vighnesh.org/shodan/config"
-	"vighnesh.org/shodan/exploitsapi"
-	"vighnesh.org/shodan/restapi"
-	"vighnesh.org/shodan/streamapi"
+	"vighnesha.in/shodan/config"
+	"vighnesha.in/shodan/exploitsapi"
+	"vighnesha.in/shodan/restapi"
+	"vighnesha.in/shodan/streamapi"
 )
 
 const streamingAPIBaseURL = "https://stream.shodan.io"

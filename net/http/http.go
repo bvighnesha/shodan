@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"sort"
 	"strings"
-	"vighnesh.org/shodan/net"
+	"vighnesha.in/shodan/net"
 )
 
 const UserAgentKey = "User-Agent"

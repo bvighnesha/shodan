@@ -1,7 +1,7 @@
 package restapi
 
 import (
-	"vighnesh.org/shodan/config"
+	"vighnesha.in/shodan/config"
 )
 
 type Rest interface {

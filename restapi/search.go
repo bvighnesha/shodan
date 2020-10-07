@@ -5,9 +5,9 @@ import (
 	. "net/http"
 	"strconv"
 	"strings"
-	"vighnesh.org/shodan/config"
-	"vighnesh.org/shodan/net/http"
-	"vighnesh.org/shodan/net/httputil"
+	"vighnesha.in/shodan/config"
+	"vighnesha.in/shodan/net/http"
+	"vighnesha.in/shodan/net/httputil"
 )
 
 const (
@@ -41,6 +41,7 @@ func (search *search) HostInfo(ctx context.Context, ip string, history, minify b
 	options[SearchOptionMinify] = strconv.FormatBool(minify)
 
 	response, e := http.Do(ctx, MethodGet, furl, options)
+
 	return httputil.Response(response, e)
 
 }
@@ -54,6 +55,7 @@ func (search *search) HostCount(ctx context.Context, query, facets string) (stri
 	options[SearchOptionFacets] = facets
 
 	response, e := http.Do(ctx, MethodGet, url, options)
+
 	return httputil.Response(response, e)
 }
 
@@ -69,6 +71,7 @@ func (search *search) HostSearch(ctx context.Context, query, facets string, page
 	options[SearchOptionPage] = strconv.Itoa(page)
 
 	response, e := http.Do(ctx, MethodGet, url, options)
+
 	return httputil.Response(response, e)
 
 }
@@ -81,6 +84,7 @@ func (search *search) HostSearchTokens(ctx context.Context, query string) (strin
 	options[SearchOptionQuery] = query
 
 	response, e := http.Do(ctx, MethodGet, url, options)
+
 	return httputil.Response(response, e)
 }
 
@@ -91,5 +95,6 @@ func (search *search) Ports(ctx context.Context) (string, error) {
 	options[config.KEY] = search.key
 
 	response, e := http.Do(ctx, MethodGet, url, options)
+
 	return httputil.Response(response, e)
 }

@@ -3,9 +3,9 @@ package streamapi
 import (
 	"context"
 	. "net/http"
-	"vighnesh.org/shodan/config"
-	"vighnesh.org/shodan/net/http"
-	"vighnesh.org/shodan/net/httputil"
+	"vighnesha.in/shodan/config"
+	"vighnesha.in/shodan/net/http"
+	"vighnesha.in/shodan/net/httputil"
 
 	"strings"
 )
@@ -18,7 +18,7 @@ type Data interface {
 }
 
 type data struct {
-	key    string
+	key           string
 	configuration config.StreamData
 }
 
@@ -27,7 +27,7 @@ func (data *data) Banners(ctx context.Context, outputType string) (string, error
 
 	options := make(map[string]string)
 	options[config.KEY] = data.key
-	options[ "t"] = outputType
+	options["t"] = outputType
 
 	response, e := http.Do(ctx, MethodGet, url, options)
 	return httputil.Response(response, e)
@@ -39,7 +39,7 @@ func (data *data) FiltereByASN(ctx context.Context, outputType string, asn strin
 
 	options := make(map[string]string)
 	options[config.KEY] = data.key
-	options[ "t"] = outputType
+	options["t"] = outputType
 
 	response, e := http.Do(ctx, MethodGet, furl, options)
 	return httputil.Response(response, e)
@@ -51,7 +51,7 @@ func (data *data) FiltereByountry(ctx context.Context, outputType string, countr
 
 	options := make(map[string]string)
 	options[config.KEY] = data.key
-	options[ "t"] = outputType
+	options["t"] = outputType
 
 	response, e := http.Do(ctx, MethodGet, furl, options)
 	return httputil.Response(response, e)
@@ -63,9 +63,8 @@ func (data *data) FiltereByPorts(ctx context.Context, outputType string, ports s
 
 	options := make(map[string]string)
 	options[config.KEY] = data.key
-	options[ "t"] = outputType
+	options["t"] = outputType
 
 	response, e := http.Do(ctx, MethodGet, furl, options)
 	return httputil.Response(response, e)
 }
-

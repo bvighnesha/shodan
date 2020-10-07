@@ -4,10 +4,9 @@ import (
 	"context"
 	. "net/http"
 	"strings"
-	"vighnesh.org/shodan/config"
-	"vighnesh.org/shodan/net/http"
-	"vighnesh.org/shodan/net/httputil"
-
+	"vighnesha.in/shodan/config"
+	"vighnesha.in/shodan/net/http"
+	"vighnesha.in/shodan/net/httputil"
 )
 
 type Scan interface {
@@ -36,7 +35,7 @@ func (scan *scan) Scan(ctx context.Context, ips []string) (string, error) {
 	panic("implement me")
 }
 
-func (scan *scan) ScanInternet(ctx context.Context, port int, protocol string) (string, error){
+func (scan *scan) ScanInternet(ctx context.Context, port int, protocol string) (string, error) {
 	panic("implement me")
 }
 

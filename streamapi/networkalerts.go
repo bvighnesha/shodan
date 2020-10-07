@@ -3,9 +3,9 @@ package streamapi
 import (
 	"context"
 	. "net/http"
-	"vighnesh.org/shodan/config"
-	"vighnesh.org/shodan/net/http"
-	"vighnesh.org/shodan/net/httputil"
+	"vighnesha.in/shodan/config"
+	"vighnesha.in/shodan/net/http"
+	"vighnesha.in/shodan/net/httputil"
 
 	"strings"
 )
@@ -15,7 +15,7 @@ type NetworkAlert interface {
 	FiltereByAlertID(ctx context.Context, outputType string, id string) (string, error)
 }
 type networkAlert struct {
-	key    string
+	key           string
 	configuration config.StreamNetworkAlerts
 }
 
@@ -24,7 +24,7 @@ func (networkAlert *networkAlert) AllNetworkAlerts(ctx context.Context, outputTy
 
 	options := make(map[string]string)
 	options[config.KEY] = networkAlert.key
-	options[ "t"] = outputType
+	options["t"] = outputType
 
 	response, e := http.Do(ctx, MethodGet, url, options)
 	return httputil.Response(response, e)
@@ -36,10 +36,8 @@ func (networkAlert *networkAlert) FiltereByAlertID(ctx context.Context, outputTy
 
 	options := make(map[string]string)
 	options[config.KEY] = networkAlert.key
-	options[ "t"] = outputType
+	options["t"] = outputType
 
 	response, e := http.Do(ctx, MethodGet, furl, options)
 	return httputil.Response(response, e)
 }
-
-

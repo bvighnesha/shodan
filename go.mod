@@ -1,3 +1,3 @@
-module vighnesh.org/shodan
+module vighnesha.in/shodan
 
-go 1.12
+go 1.18
