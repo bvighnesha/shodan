@@ -7,10 +7,6 @@ import (
 	"vighnesha.in/shodan/streamapi"
 )
 
-const streamingAPIBaseURL = "https://stream.shodan.io"
-const exploitAPIBaseURL = "https://exploits.shodan.io/api"
-const restAPIURL = "https://api.shodan.io"
-
 type Shodan interface {
 	RestAPI() restapi.Rest
 	StreamAPI() streamapi.Stream

@@ -1,9 +1,9 @@
 language: go
 go_import_path: vighnesh.org/shodan
 go:
-- 1.11.x
-- 1.12.x
-- master
+  - 1.11.x
+  - 1.12.x
+  - master
 
 env:
   - GO111MODULE=on

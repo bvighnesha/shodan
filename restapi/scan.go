@@ -31,11 +31,11 @@ func (scan *scan) Protocols(ctx context.Context) (string, error) {
 	return httputil.Response(response, e)
 }
 
-func (scan *scan) Scan(ctx context.Context, ips []string) (string, error) {
+func (scan *scan) Scan(_ context.Context, _ []string) (string, error) {
 	panic("implement me")
 }
 
-func (scan *scan) ScanInternet(ctx context.Context, port int, protocol string) (string, error) {
+func (scan *scan) ScanInternet(_ context.Context, _ int, _ string) (string, error) {
 	panic("implement me")
 }
 

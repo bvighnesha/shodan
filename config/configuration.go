@@ -27,6 +27,7 @@ func LoadConfig() Configuration {
 	if err != nil {
 		fmt.Println("error:", err)
 	}
+
 	return config
 }
 

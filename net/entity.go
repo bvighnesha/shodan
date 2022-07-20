@@ -5,12 +5,12 @@ import (
 )
 
 const (
-	CONTENT_TYPE string = "Content-Type: text/plain"
-	LINE_FEED    string = "\r\n"
-	CHARSET      string = "UTF-8"
-	BOUNDARY     string = "e2a540ab4e6c5ed79c01157c255a2b5007e157d7"
-	BOUNDARY_FIX string = "--"
-	USER_AGENT   string = "This Library Created by Bojja Vighneswar Rao, https://vighnesh.org"
+	ContentType string = "Content-Type: text/plain"
+	LineFeed    string = "\r\n"
+	CHARSET     string = "UTF-8"
+	BOUNDARY    string = "e2a540ab4e6c5ed79c01157c255a2b5007e157d7"
+	BoundaryFix string = "--"
+	UserAgent   string = "This Library Created by Bojja Vighneswar Rao, https://vighnesh.org"
 )
 
 type Entity struct {
@@ -18,33 +18,33 @@ type Entity struct {
 }
 
 func (me *Entity) AddHeader(name, value string) {
-
 	me.WriteString(name)
 	me.WriteString(":")
 	me.WriteString(value)
-	me.WriteString(LINE_FEED)
+	me.WriteString(LineFeed)
 }
 
 func (me *Entity) AddTextBody(typ, value string) {
-	me.WriteString(BOUNDARY_FIX)
+	me.WriteString(BoundaryFix)
 	me.WriteString(BOUNDARY)
-	me.WriteString(LINE_FEED)
+	me.WriteString(LineFeed)
 	me.WriteString("Content-Disposition: form-data; name=\"" + typ + "\"")
-	me.WriteString(LINE_FEED)
-	me.WriteString(CONTENT_TYPE)
+	me.WriteString(LineFeed)
+	me.WriteString(ContentType)
 	me.WriteString("; charset=")
 	me.WriteString(CHARSET)
-	me.WriteString(LINE_FEED)
-	me.WriteString(LINE_FEED)
+	me.WriteString(LineFeed)
+	me.WriteString(LineFeed)
 	me.WriteString(value)
-	me.WriteString(LINE_FEED)
+	me.WriteString(LineFeed)
 }
 
 func (me *Entity) Build() []byte {
-	me.WriteString(LINE_FEED)
-	me.WriteString(BOUNDARY_FIX)
+	me.WriteString(LineFeed)
+	me.WriteString(BoundaryFix)
 	me.WriteString(BOUNDARY)
-	me.WriteString(BOUNDARY_FIX)
-	me.WriteString(LINE_FEED)
+	me.WriteString(BoundaryFix)
+	me.WriteString(LineFeed)
+
 	return me.Bytes()
 }

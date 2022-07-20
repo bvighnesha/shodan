@@ -1,7 +1,6 @@
 package http
 
 import (
-	"bytes"
 	"context"
 	"fmt"
 	"net/http"
@@ -18,7 +17,7 @@ func Do(ctx context.Context, method, url string, options map[string]string) (*ht
 	if e != nil {
 		return nil, e
 	}
-	request.Header.Add(UserAgentKey, net.USER_AGENT)
+	request.Header.Add(UserAgentKey, net.UserAgent)
 	query := request.URL.Query()
 
 	for key, value := range options {
@@ -31,17 +30,6 @@ func Do(ctx context.Context, method, url string, options map[string]string) (*ht
 	request.URL.RawQuery = Encode(query)
 
 	fmt.Println(Encode(query))
-	return Execute(ctx, request)
-}
-
-func DoPost(ctx context.Context, me *net.Entity, url string) (*http.Response, error) {
-	request, e := http.NewRequest(http.MethodPost, url, bytes.NewBuffer(me.Build()))
-	if e != nil {
-		return nil, e
-	}
-
-	request.Header.Set(ContentTypeKey, net.CONTENT_TYPE)
-	request.Header.Add(UserAgentKey, net.USER_AGENT)
 	return Execute(ctx, request)
 }
 

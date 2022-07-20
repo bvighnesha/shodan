@@ -27,7 +27,7 @@ type network struct {
 	config config.NetworkAlerts
 }
 
-func (network *network) Alert(ctx context.Context, name string, filters interface{}, filtersip []string, expires int) {
+func (network *network) Alert(_ context.Context, _ string, _ interface{}, _ []string, _ int) {
 	panic("implement me")
 }
 
@@ -97,7 +97,7 @@ func (network *network) DisableTrigger(ctx context.Context, id, trigger string) 
 	return httputil.Response(response, e)
 }
 
-func (network *network) AddToWhitelist(ctx context.Context, id, trigger, service string) (string, error) {
+func (network *network) AddToWhitelist(ctx context.Context, id, trigger, _ string) (string, error) {
 	url := network.config.AddTriggerToWhitelistURL
 	idReplaced := strings.Replace(url, "{id}", id, -1)
 	triggerReplaced := strings.Replace(idReplaced, "{trigger}", trigger, -1)
@@ -110,7 +110,7 @@ func (network *network) AddToWhitelist(ctx context.Context, id, trigger, service
 	return httputil.Response(response, e)
 }
 
-func (network *network) RemoveFromWhitelist(ctx context.Context, id, trigger, service string) (string, error) {
+func (network *network) RemoveFromWhitelist(ctx context.Context, id, trigger, _ string) (string, error) {
 	url := network.config.RemoveFromWhitelistURL
 	idReplaced := strings.Replace(url, "{id}", id, -1)
 	triggerReplaced := strings.Replace(idReplaced, "{trigger}", trigger, -1)
