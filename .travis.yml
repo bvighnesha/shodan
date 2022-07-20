@@ -1,8 +1,8 @@
 language: go
-go_import_path: vighnesh.org/shodan
+go_import_path: vighnesha.in/shodan
 go:
-  - 1.11.x
-  - 1.12.x
+  - 1.17.x
+  - 1.18.x
   - master
 
 env:
