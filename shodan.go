@@ -11,8 +11,6 @@ const streamingAPIBaseURL = "https://stream.shodan.io"
 const exploitAPIBaseURL = "https://exploits.shodan.io/api"
 const restAPIURL = "https://api.shodan.io"
 
-// mUZPi35ubzYPmbGkvkQkRDlDVnEIwS0c
-
 type Shodan interface {
 	RestAPI() restapi.Rest
 	StreamAPI() streamapi.Stream
